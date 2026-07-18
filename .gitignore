@@ -8,8 +8,6 @@ __pycache__/
 # CatBoost logs
 catboost_info/
 
-# Trained models (optional)
-models/
 
 # Reports (optional)
 reports/
