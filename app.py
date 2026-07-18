@@ -136,7 +136,7 @@ with st.form("prediction_form"):
 
     with col1:
         make = st.selectbox("Make", MAKES)
-        model_name = st.selectbox("Model", MODELS_BY_MAKE[make])
+        model_name = st.selectbox("Model", MODELS_BY_MAKE[make], key=f"model_{make}")
         year = st.slider("Year", 1996, 2025, 2018)
         mileage = st.number_input(
             "Mileage (km)", min_value=0, max_value=400_000,
