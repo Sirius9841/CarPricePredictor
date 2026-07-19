@@ -50,6 +50,21 @@ streamlit run app.py
 
 The app opens automatically in your browser at `http://localhost:8501`.
 
+## Training the model
+
+Want to regenerate the data or retrain the model yourself? From the project root, with the virtual environment active:
+
+```bash
+.venv\Scripts\Activate.ps1
+python -m src.data_generator --samples 10000 --output data/car_data.csv
+python -m src.train
+python -m src.predict
+```
+
+The `--samples` and `--output` flags on `data_generator` are optional — they default to 10,000 and `data/car_data.csv` if omitted. `src.predict` is a separate interactive command-line tool that prompts you for a car's details in the terminal — it's not required to run the Streamlit app, which uses the saved model directly.
+
+Note: because training involves some randomness, metrics will vary slightly between runs — the numbers below are from one representative run, not a fixed guarantee.
+
 ## Project structure
 
 ```
@@ -69,6 +84,4 @@ Real used-car listing data is hard to come by in bulk and often messy or inconsi
 
 ## About this project
 
-This started as a way to work through a full machine learning pipeline end to end — not just training a model in a notebook, but actually shipping something usable: data generation, feature engineering, evaluation, and a live app someone can interact with.
-
-Open to freelance and contract work involving predictive modeling, data pipelines, or ML-powered apps — feel free to get in touch.
+This started as a way to work through a full machine learning pipeline end to end, not just training a model in a notebook, but actually shipping something usable: data generation, feature engineering, evaluation, and a live app someone can interact with.
